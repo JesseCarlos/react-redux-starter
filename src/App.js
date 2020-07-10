@@ -1,13 +1,16 @@
-import React from "react";
-import { connect } from "react-redux";
-import { compose } from "redux";
-import { firestoreConnect } from "react-redux-firebase";
 import { Formik } from "formik";
-import logo from "./logo.svg";
+import React from "react";
+import { useSelector } from "react-redux";
+import { useFirestoreConnect } from "react-redux-firebase";
 import "./App.css";
+import logo from "./logo.svg";
 
-function App({ firestore }) {
-  console.log(firestore);
+const collectionName = "";
+
+function App() {
+  useFirestoreConnect({collection: collectionName});
+  useSelector(state => console.log(state.firestore.ordered[collectionName]))
+
   return (
     <div className="App">
       <Formik initialValues={{ name: "Dev" }}>
@@ -47,4 +50,4 @@ function App({ firestore }) {
   );
 }
 
-export default compose(connect(), firestoreConnect([]))(App);
+export default App;

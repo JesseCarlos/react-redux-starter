@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
-import "firebase/firestore";
 import "firebase/auth";
+import "firebase/firestore";
 
 var firebaseConfig = {
   apiKey: "",
@@ -9,9 +9,9 @@ var firebaseConfig = {
   projectId: "",
   storageBucket: "",
   messagingSenderId: "",
-  appId: ""
+  appId: "",
+  measurementId: "",
 };
 
 firebase.initializeApp(firebaseConfig);
-
-export default firebase;
+firebase.firestore();
